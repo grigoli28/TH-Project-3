@@ -1,0 +1,59 @@
+mixin carDetail(car)
+    p Manufacturer: 
+        b #{car.manufacturer}
+    p Model: 
+        b #{car.model}
+    p Production Year: 
+        b #{car.year}
+    p Color: 
+        b #{car.color}
+    p VIN: 
+        b #{car.VIN}
+    p License Number: 
+        b #{car.licenseNumber}
+    p Owner: 
+        if car.owner
+            b #{car.owner.firstName} #{car.owner.middleName} #{car.owner.lastName}
+        else
+            | None
+
+mixin possibleOwners(personArr)
+    label Owner
+        if car.owner
+            input(class="editInput", list="persons", name="ownerID", value=`${car.owner.ID}`)
+        else
+            input(class="editInput", list="persons", name="ownerID")
+        datalist#persons
+            each person in personArr
+                if (!person.car && !person.disabled)
+                    option(value=`${person.ID}`)= `${person.firstName} ${person.middleName} ${person.lastName}`
+    
+
+include ../includes/header.pug
+body
+    .container
+        h1= title
+        include ../includes/navigation.pug
+        +carDetail(car)
+        button.btn#remove(type="submit") Remove
+        button.btn#disable(type="submit") Disable
+        button.btn#edit(type="submit") Edit
+        form.form#editForm(action="", method="post", class="hidden")
+            label Manufacturer
+                input(class="editInput" type="text", name="manufacturer", value=`${car.manufacturer}`)
+            label Model
+                input(class="editInput" type="text", name="model", value=`${car.model}`)
+            label Production Year
+                input(class="editInput" type="number", name="year", value=`${car.year}`)
+            label Color
+                input(class="editInput" type="text", name="color", value=`${car.color}`)
+            label VIN
+                input(class="editInput" type="text", name="VIN", value=`${car.VIN}`)
+            label License Plate Number
+                input(class="editInput" type="text", name="licenseNumber", value=`${car.licenseNumber}`)
+            +possibleOwners(persons)
+            button.btn#saveEdited(type="submit") Save Details
+
+
+        include ../includes/footer.pug
+    script(src="/js/carDetail.js")

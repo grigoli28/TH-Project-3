@@ -1,0 +1,23 @@
+mixin listPersons(personArr)
+    each person in personArr
+        .person.flex-box
+            p.person__name= `${person.firstName} ${person.middleName} ${person.lastName}`
+            a.person__details.button(href=`/persons/${person.ID}`) Details
+
+
+
+include ../includes/header.pug
+body
+    .container
+        h1= title
+        include ../includes/navigation.pug
+        main
+            form.flex-box(action="", method="get")
+                input(type="hidden", name="search", value="true")
+                label Person Search
+                    input#filter(type="text", name="filter", placeholder="Full Name / ID")
+                    button.search-btn(type="submit")
+                        i.fas.fa-search
+            +listPersons(persons)
+
+        include ../includes/footer.pug

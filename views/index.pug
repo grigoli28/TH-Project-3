@@ -1,0 +1,15 @@
+include includes/header.pug
+body
+    .container
+        h1= title
+        .flex-box
+            p
+                a.home__link.button(href="/persons") Active Persons
+            p
+                a.home__link.button(href="/persons/new") Add New Person
+            p
+                a.home__link.button(href="/cars") Available Vehicles
+            p
+                a.home__link.button(href="/cars/new") Add New Car
+
+        include includes/footer.pug

@@ -1,0 +1,253 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #009688;
+    font-size: 3em;
+}
+
+a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+input {
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px solid grey;
+    margin-left: 10px;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+button {
+    padding: 3px;
+    margin: 5px;
+}
+
+em {
+    opacity: .5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flex-box {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.flex-box>p {
+    display: flex;
+    justify-content: center;
+    flex-basis: 50%;
+}
+
+
+/* Navigation */
+
+.home__link {
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #009688;
+    width: 200px;
+    color: #fff;
+}
+
+.home__link:hover {
+    background-color: #F4815B;
+}
+
+.navigation {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+}
+
+.navigation--item {
+    display: inline-block;
+    background-color: #009688;
+    flex-basis: 20%;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.navigation--item:hover {
+    background-color: #F4815B;
+}
+
+
+/* Persons */
+
+.person {
+    display: inline-block;
+    border: 1px solid #00796B;
+    width: 47%;
+    margin: 10px;
+    padding: 10px;
+}
+
+.person__name {
+    font-size: 1.5em;
+}
+
+.person__details {
+    border-radius: 3px;
+    background-color: #009688;
+    color: #fff;
+}
+
+.person__details:hover {
+    background-color: #F4815B;
+}
+
+
+/* Car */
+
+.car {
+    display: inline-block;
+    border: 1px solid #00796B;
+    width: 47%;
+    margin: 10px;
+    padding: 10px;
+}
+
+.car__name {
+    font-size: 1.5em;
+}
+
+.car__details {
+    border-radius: 3px;
+    background-color: #009688;
+    color: #fff;
+}
+
+.car__details:hover {
+    background-color: #F4815B;
+}
+
+
+/* Form */
+
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 30px 0;
+}
+
+
+/* Footer */
+
+.footer {
+    margin: 30px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 1.3em;
+    color: #26A69A;
+}
+
+
+/* Button */
+
+.btn-wrap {
+    /* position: absolute; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* margin-top: -86px; */
+    /* margin-left: -89px; */
+    text-align: center;
+}
+
+a {
+    -webkit-transition: all 200ms cubic-bezier(0.99, 0.43, 0, 0.56);
+    -moz-transition: all 200ms cubic-bezier(0.99, 0.43, 0, 0.56);
+    -ms-transition: all 200ms cubic-bezier(0.99, 0.43, 0, 0.56);
+    -o-transition: all 200ms cubic-bezier(0.99, 0.43, 0, 0.56);
+    transition: all 200ms cubic-bezier(0.99, 0.43, 0, 0.56);
+    display: block;
+    margin: 20px auto;
+    max-width: 180px;
+    text-decoration: none;
+}
+
+a.button {
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+    box-shadow: rgb(244, 129, 91) 0 0px 0px 40px inset;
+}
+
+
+/* Search */
+
+.search-btn {
+    background-color: #009688;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: all 200ms cubic-bezier(0.99, 0.43, 0, 0.56);
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #F4815B;
+    box-shadow: rgb(244, 129, 91) 0 0px 0px 40px inset;
+}
+
+
+/* Custom Button */
+
+.btn {
+    background-color: #009688;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    transition: all 200ms cubic-bezier(0.99, 0.43, 0, 0.56);
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #F4815B;
+    box-shadow: rgb(244, 129, 91) 0 0px 0px 40px inset;
+}
+
+
+/*  */
+
+#remove {
+    background-color: red;
+}
+
+#disable {
+    background-color: rgb(255, 115, 0);
+}
+
+#edit {
+    background-color: #26A69A;
+}
+
+.hidden {
+    display: none !important;
+}

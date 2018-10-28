@@ -1,0 +1,36 @@
+mixin personSelector(personArr)
+    label Owner
+        input(list="persons", name="ownerID" required)
+        datalist#persons
+            each person in personArr
+                if (!person.disabled && !person.car)
+                    option(value=`${person.ID}`)= `${person.firstName} ${person.middleName} ${person.lastName}`
+
+
+
+include ../includes/header.pug
+body
+    .container
+        h1=title
+        include ../includes/navigation.pug
+
+        form.form(action="" method="POST")
+            label Manufacturer
+                input(type="text", name="manufacturer")
+            label Model 
+                em (Optional)
+                input(type="text", name="model")
+            label Production Year 
+                em (Optional)
+                input(type="number", name="year")
+            label Color 
+                em (Optional)
+                input(type="text", name="color")
+            label(class="required") VIN
+                input(type="text", name="VIN" required)
+            label(class="required") License Plate Number
+                input(type="text", name="licenseNumber" required)
+            +personSelector(persons)
+            button.btn(type="submit") Add Car
+
+        include ../includes/footer.pug

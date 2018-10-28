@@ -1,0 +1,23 @@
+mixin listCars(carArr)
+    each car in carArr
+        .car.flex-box
+            p.car__name= `${car.manufacturer} ${car.model}`
+            a.car__details.button(href=`cars/${car.VIN}`) Details
+
+
+include ../includes/header.pug
+body
+    .container
+        h1= title
+        include ../includes/navigation.pug
+        main
+            form.flex-box(action="", method="get")
+                input(type="hidden", name="search", value="true")
+                label Car search
+                    input#filter(type="text", name="filter", placeholder="Manufacturer & Model / VIN")
+                    button.search-btn(type="submit")
+                        i.fas.fa-search
+            +listCars(cars)
+
+
+        include ../includes/footer.pug

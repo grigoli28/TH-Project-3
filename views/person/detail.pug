@@ -1,0 +1,51 @@
+mixin personDetails(person)
+    p Full Name: 
+        b #{person.firstName} #{person.middleName} #{person.lastName}
+    p ID: 
+        b #{person.ID}
+    p Birth Date: 
+        b #{person.birthDate}
+    p Owned Car: 
+        if person.car
+            b #{person.car.manufacturer} #{person.car.model} [#{person.car.licenseNumber}]
+        else
+            | None
+
+
+mixin availableCars(carArr)
+    label Owned Car
+        if person.car
+            input(class="editInput", list="cars", name="ownedCarVIN", value=`${person.car.VIN}`)
+        else
+            input(class="editInput", list="cars", name="ownedCarVIN")
+        datalist#cars
+            each car in carArr
+                if (!car.owner && !car.disabled)
+                    option(value=`${car.VIN}`)= `${car.manufacturer} ${car.model} [${car.licenseNumber}]`
+
+
+include ../includes/header.pug
+body
+    .container
+        h1= title
+        include ../includes/navigation.pug
+        +personDetails(person)
+        button.btn#remove Remove
+        button.btn#disable Disable
+        button.btn#edit Edit
+        form.form#editForm(action="", method="post", class="hidden")
+            label First Name
+                input(class="editInput", type="text", name="firstName", value=`${person.firstName}`)
+            label Middle Name
+                input(class="editInput", type="text", name="middleName", value=`${person.middleName}`)
+            label Last Name
+                input(class="editInput", type="text", name="lastName", value=`${person.lastName}`)
+            label ID
+                input(class="editInput", type="number", name="id", value=`${person.ID}`)
+            label Birth Date
+                input(class="editInput", type="date", name="birthDate", value=`${person.birthDate}`)
+            +availableCars(cars)
+            button.btn#saveEdited(type="submit") Save Details
+
+        include ../includes/footer.pug
+    script(src="/js/personDetail.js")
